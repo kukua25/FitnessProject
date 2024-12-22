@@ -14,15 +14,21 @@
             <button onclick="showSection('logWorkout')">Log Workout</button>
             <button onclick="showSection('viewGraph')">View Progress</button>
             <button onclick="showSection('setGoals')">Set Goals</button>
-            <button onclick="showSection('viewPRs')">View PRs</button>
+            <button onclick="showSection('viewPRs')">View PR's</button>
+            <button onclick="showSection('aboutTeam')">About</button>
         </nav>
     </header>
     <main>
         <section id="logWorkout" class="hidden">
             <h2>Log Your Workout</h2>
-            <form id="workoutForm">
+            <form id="workoutForm"> 
                 <label for="exercise">Exercise:</label>
-                <input type="text" id="exercise" name="exercise" required>
+                <select name="exercise" id="exercise">
+                    <option value="Squat">Squat</option>
+                    <option value="DeadLift">Dead-Lift</option>
+                    <option value="FlatBar-Bench">Flat Bar-Bell Bench</option>
+                    <option value="InclineDumbell">Incline Dum-bell Bench</optgroup>
+                    </select>
                 <label for="weight">Weight (lbs):</label>
                 <input type="number" id="weight" name="weight" required>
                 <label for="reps">Reps:</label>
@@ -34,13 +40,25 @@
         </section>
         <section id="viewGraph" class="hidden">
             <h2>Progress Graph</h2>
-            <canvas id="progressGraph"></canvas>
+    <label for="exerciseSelect">Choose Exercise:</label>
+    <select id="exerciseSelect">
+        <option value="Squat">Squat</option>
+        <option value="DeadLift">Deadlift</option>
+        <option value="FlatBar-Bench">Flat Barbell Bench</option>
+        <option value="InclineDumbell">Incline Dumbbell Bench</option>
+    </select>
+    <canvas id="progressGraph"></canvas>
         </section>
         <section id="setGoals" class="hidden">
             <h2>Set Goals</h2>
             <form id="goalForm">
                 <label for="goalExercise">Exercise:</label>
-                <input type="text" id="goalExercise" name="goalExercise" required>
+                <select name="goalExercise" id="goalExercise">
+                    <option value="Squat">Squat</option>
+                    <option value="DeadLift">Dead-Lift</option>
+                    <option value="FlatBar-Bench">Flat Bar-Bell Bench</option>
+                    <option value="InclineDumbell">Incline Dum-bell Bench</optgroup>
+                    </select>
                 <label for="goalWeight">Target Weight (lbs):</label>
                 <input type="number" id="goalWeight" name="goalWeight" required>
                 <label for="goalReps">Target Reps:</label>
@@ -51,6 +69,9 @@
         <section id="viewPRs" class="hidden">
             <h2>Your Personal Records</h2>
             <ul id="prList"></ul>
+        </section>
+        <section id="aboutTeam" class="hidden">
+            <h2>About our Team</h2>
         </section>
     </main>
     <script src="script.js"></script>
