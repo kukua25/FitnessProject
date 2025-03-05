@@ -1,123 +1,174 @@
-/**
- * Show/hide the sections
- */
+/*******************************************************
+ * Show/hide sections
+ *******************************************************/
 function showSection(sectionId) {
+    // Hide all sections
     document.querySelectorAll('section').forEach(section => {
-        section.classList.add('hidden');
+      section.classList.add('hidden');
     });
+    // Show chosen section
     document.getElementById(sectionId).classList.remove('hidden');
-}
-
-/**
- * Logs the workouts
- */
-document.getElementById('workoutForm').addEventListener('submit', function (e) {
+  
+    // If user clicked View PRs, show the PR table
+    if (sectionId === 'viewPRs') {
+      displayPRs();
+    }
+  }
+  
+  // Global array to store workout data
+  let workoutData = [];
+  
+  // Load data from LocalStorage on page load
+  window.onload = () => {
+    loadWorkouts();
+    renderChart(workoutData); // Render chart with existing data
+  };
+  
+  //-------------------------------------
+  // LOG WORKOUT
+  //-------------------------------------
+  document.getElementById('workoutForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    const exercise = document.getElementById('exercise').value;
-    const weight = document.getElementById('weight').value;
-    const reps = document.getElementById('reps').value;
-    const sets = document.getElementById('sets').value;
-
-    console.log(`Logged: ${exercise}, ${weight} lbs, ${reps} reps, ${sets} sets`);
-    alert('Workout Logged!');
-    e.target.reset();
-});
-
-/**
- * sets goals
- */
-document.getElementById('goalForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const goalExercise = document.getElementById('goalExercise').value;
-    const goalWeight = document.getElementById('goalWeight').value;
-    const goalReps = document.getElementById('goalReps').value;
-
-    console.log(`Goal Set: ${goalExercise}, ${goalWeight} lbs, ${goalReps} reps`);
-    alert('Goal Set!');
-    e.target.reset();
-});
-
-// Array to store workout data
-let workoutData = [];
-
-// Save workouts to LocalStorage
-function saveWorkouts() {
-    localStorage.setItem('workoutData', JSON.stringify(workoutData));
-}
-
-// Load workouts from LocalStorage
-function loadWorkouts() {
-    const data = localStorage.getItem('workoutData');
-    if (data) workoutData = JSON.parse(data);
-}
-
-// Chart.js - Render Progress Graph
-let chart;
-function renderChart(data) {
-    const ctx = document.getElementById('progressGraph').getContext('2d');
-
-    // Filter data for a specific exercise (e.g., "Squat")
-    const filteredData = data.filter(item => item.exercise === "Squat");
-
-    const labels = filteredData.map(item => item.date);
-    const weights = filteredData.map(item => item.weight);
-
-    // Destroy previous chart instance if it exists
-    if (chart) chart.destroy();
-
-    chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Weight Progress (Squat)',
-                data: weights,
-                borderColor: '#36a2eb',
-                borderWidth: 2,
-                fill: false
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                x: { title: { display: true, text: 'Date' } },
-                y: { title: { display: true, text: 'Weight (lbs)' }, beginAtZero: true }
-            }
-        }
-    });
-}
-
-// Update `workoutForm` submission
-document.getElementById('workoutForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Get workout data from the form
     const exercise = document.getElementById('exercise').value;
     const weight = Number(document.getElementById('weight').value);
     const reps = Number(document.getElementById('reps').value);
     const sets = Number(document.getElementById('sets').value);
-    const date = new Date().toISOString().split('T')[0]; // Current date
-
-    // Add workout to the data array
+    const date = new Date().toISOString().split('T')[0]; // e.g. "2025-03-05"
+  
+    // Add to workoutData
     workoutData.push({ exercise, weight, reps, sets, date });
-    saveWorkouts(); // Save the updated data to LocalStorage
-
+    saveWorkouts();
+  
     alert('Workout Logged!');
-
-    // Clear the form
     e.target.reset();
-
+  
     // Refresh the chart
     renderChart(workoutData);
-});
-
-// Render the chart when the user opens the "View Progress" section
-document.getElementById('viewGraph').addEventListener('click', () => {
+  });
+  
+  //-------------------------------------
+  // SET GOALS
+  //-------------------------------------
+  document.getElementById('goalForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const goalExercise = document.getElementById('goalExercise').value;
+    const goalWeight = document.getElementById('goalWeight').value;
+    const goalReps = document.getElementById('goalReps').value;
+  
+    // Insert a new row in the goals table
+    const tableBody = document.querySelector('#goalsTable tbody');
+    const newRow = tableBody.insertRow();
+  
+    const exerciseCell = newRow.insertCell();
+    exerciseCell.textContent = goalExercise;
+  
+    const weightCell = newRow.insertCell();
+    weightCell.textContent = goalWeight;
+  
+    const repsCell = newRow.insertCell();
+    repsCell.textContent = goalReps;
+  
+    alert('Goal Set!');
+    e.target.reset();
+  });
+  
+  //-------------------------------------
+  // VIEW PROGRESS (Chart.js)
+  //-------------------------------------
+  let chart;
+  
+  // Re-render chart with the selected exercise
+  function renderChart(data) {
+    const ctx = document.getElementById('progressGraph').getContext('2d');
+    const selectedExercise = document.getElementById('exerciseSelect').value;
+  
+    // Filter data for the chosen exercise
+    const filteredData = data.filter(item => item.exercise === selectedExercise);
+  
+    const labels = filteredData.map(item => item.date);
+    const weights = filteredData.map(item => item.weight);
+  
+    // Destroy previous chart instance if it exists
+    if (chart) {
+      chart.destroy();
+    }
+  
+    chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: `Weight Progress (${selectedExercise})`,
+            data: weights,
+            borderWidth: 2,
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Date'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Weight (lbs)'
+            }
+          }
+        }
+      }
+    });
+  }
+  
+  // When exercise is changed in the dropdown, update the chart
+  document.getElementById('exerciseSelect').addEventListener('change', () => {
     renderChart(workoutData);
-});
-
-// Initialize data on page load
-window.onload = () => {
-    loadWorkouts();
-    renderChart(workoutData); // Render chart with existing data
-};
+  });
+  
+  //-------------------------------------
+  // VIEW PR's
+  //-------------------------------------
+  function displayPRs() {
+    const tableBody = document.querySelector('#prTable tbody');
+    tableBody.innerHTML = ''; // Clear existing rows
+  
+    // Calculate max weight for each exercise
+    const maxWeights = {};
+    workoutData.forEach(item => {
+      const { exercise, weight } = item;
+      if (!maxWeights[exercise] || weight > maxWeights[exercise]) {
+        maxWeights[exercise] = weight;
+      }
+    });
+  
+    // Create a table row for each exercise's max weight
+    for (let exercise in maxWeights) {
+      const row = tableBody.insertRow();
+      const exerciseCell = row.insertCell();
+      exerciseCell.textContent = exercise;
+      const weightCell = row.insertCell();
+      weightCell.textContent = maxWeights[exercise];
+    }
+  }
+  
+  //-------------------------------------
+  // LOCAL STORAGE HELPERS
+  //-------------------------------------
+  function saveWorkouts() {
+    localStorage.setItem('workoutData', JSON.stringify(workoutData));
+  }
+  
+  function loadWorkouts() {
+    const data = localStorage.getItem('workoutData');
+    if (data) {
+      workoutData = JSON.parse(data);
+    }
+  }
+  

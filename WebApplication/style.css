@@ -1,39 +1,39 @@
-/* General Reset */
-body, h1, h2, nav, button, section, form, input, select {
+/* General reset */
+body, h1, h2, nav, button, section, form, input, select, table, th, td {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
     padding: 20px;
     text-align: center;
-}
-
-/* Header Styling */
-header {
+  }
+  
+  /* Header styling */
+  header {
     background: #36a2eb;
     color: white;
     padding: 1rem 0;
     margin-bottom: 20px;
-}
-
-header h1 {
+  }
+  
+  header h1 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-}
-
-header nav {
+  }
+  
+  header nav {
     display: flex;
     justify-content: center;
     gap: 1rem;
-}
-
-header button {
+  }
+  
+  header button {
     font-size: 1rem;
     padding: 0.5rem 1rem;
     background: white;
@@ -42,64 +42,65 @@ header button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-}
-
-header button:hover {
+  }
+  
+  header button:hover {
     background: #007bb5;
     color: white;
-}
-
-/* Main Content */
-main {
-    max-width: 600px;
+  }
+  
+  /* Main content */
+  main {
+    max-width: 700px;
     margin: 0 auto;
-}
-
-/* Section Styling */
-section {
+  }
+  
+  /* Section styling */
+  section {
     margin-bottom: 2rem;
     padding: 1rem;
-    display: none; /* Default: hide all sections */
-}
-
-section.hidden {
+    display: none; /* default hidden */
+  }
+  
+  section.hidden {
     display: none;
-}
-
-section:not(.hidden) {
+  }
+  
+  section:not(.hidden) {
     display: block;
-}
-
-/* Form Styling */
-form {
+  }
+  
+  /* Form styling */
+  form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     text-align: left;
-}
-
-label {
+    margin-top: 1rem;
+  }
+  
+  label {
     font-weight: bold;
-}
-
-input[type="number"],
-select {
+  }
+  
+  input[type="number"],
+  select {
     font-size: 1rem;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
     box-sizing: border-box;
-}
-
-input[type="number"]:focus,
-select:focus {
+  }
+  
+  input[type="number"]:focus,
+  select:focus {
     border-color: #36a2eb;
     outline: none;
-}
-
-/* Submit Button */
-button[type="submit"] {
+  }
+  
+  /* Submit button */
+  button[type="submit"] {
     font-size: 1rem;
     padding: 0.5rem 1rem;
     color: white;
@@ -107,30 +108,34 @@ button[type="submit"] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
+  }
+  
+  button[type="submit"]:hover {
     background-color: #007bb5;
-}
-
-/* Canvas Styling */
-canvas {
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  /* Canvas styling */
+  canvas {
     max-width: 100%;
     height: auto;
     margin-top: 1rem;
-}
-
-/* List Styling for PRs */
-#prList {
-    list-style: none;
-    padding: 0;
-}
-
-#prList li {
-    background: #f4f4f4;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
+  }
+  

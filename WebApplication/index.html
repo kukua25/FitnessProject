@@ -19,6 +19,8 @@
         </nav>
     </header>
     <main>
+
+        <!-- LOG WORKOUT -->
         <section id="logWorkout" class="hidden">
             <h2>Log Your Workout</h2>
             <form id="workoutForm"> 
@@ -29,15 +31,21 @@
                     <option value="FlatBar-Bench">Flat Bar-Bell Bench</option>
                     <option value="InclineDumbell">Incline Dum-bell Bench</optgroup>
                     </select>
+
                 <label for="weight">Weight (lbs):</label>
                 <input type="number" id="weight" name="weight" required min="0">
+
                 <label for="reps">Reps:</label>
                 <input type="number" id="reps" name="reps" required min="1">
+
                 <label for="sets">Sets:</label>
                 <input type="number" id="sets" name="sets" required min="1">
+
                 <button type="submit">Log Workout</button>
             </form>
         </section>
+
+        <!-- VIEW PROGRESS -->
         <section id="viewGraph" class="hidden">
             <h2>Progress Graph</h2>
     <label for="exerciseSelect">Choose Exercise:</label>
@@ -49,6 +57,8 @@
     </select>
     <canvas id="progressGraph"></canvas>
         </section>
+
+        <!-- SET GOALS-->
         <section id="setGoals" class="hidden">
             <h2>Set Goals</h2>
             <form id="goalForm">
@@ -59,19 +69,54 @@
                     <option value="FlatBar-Bench">Flat Bar-Bell Bench</option>
                     <option value="InclineDumbell">Incline Dum-bell Bench</optgroup>
                     </select>
+
                 <label for="goalWeight">Target Weight (lbs):</label>
                 <input type="number" id="goalWeight" name="goalWeight" required min="0">
+
                 <label for="goalReps">Target Reps:</label>
                 <input type="number" id="goalReps" name="goalReps" required min="1">
+
                 <button type="submit">Set Goal</button>
             </form>
         </section>
+
+        <!-- GOALS TABLE-->
+        <table id="goalsTable">
+            <thead>
+                <tr>
+                    <th>Exercise</th>
+                    <th>Target Weight</th>
+                    <th>Target Reps</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- GOALS will be inserted here -->
+            </tbody>
+        </table>
+    </section>
+
+        <!-- VIEW PR's-->
+
         <section id="viewPRs" class="hidden">
-            <h2>Your Personal Records</h2>
-            <ul id="prList"></ul>
+            <h2>Personal Records</h2>
+            <table id="prTable">
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Max Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- PR's will be inserted here-->
+                </tbody>
+            </table>
         </section>
+
+        <!-- ABOUT section-->
+
         <section id="aboutTeam" class="hidden">
             <h2>About our Team</h2>
+            <p>Information about team...</p>
         </section>
     </main>
     <script src="script.js"></script>
