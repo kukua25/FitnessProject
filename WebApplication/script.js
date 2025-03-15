@@ -14,6 +14,15 @@ function showSection(sectionId) {
       displayPRs();
     }
   }
+
+  // Google Sign in Feature
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
   
   // Global array to store workout data
   let workoutData = [];
@@ -45,6 +54,27 @@ function showSection(sectionId) {
     // Refresh the chart
     renderChart(workoutData);
   });
+
+  // clearData button functionalility
+  document.getElementById('clearData').addEventListener('click', function() {
+    // creates a confirmation dialog
+    const userConfirmed = confirm('WARNING: Proceeding will delete all WORKOUT DATA');
+
+    if (userConfirmed) {
+      // clears the workout data array 
+      workoutData = [];
+      
+      //removes from localStorage
+      localStorage.removeItem('workoutData');
+
+      // alerts the user
+      alert('Workout data has been cleared');
+
+      // re-renders the chart with the empty data
+      renderChart(workoutData);
+
+    }
+});
   
   //-------------------------------------
   // SET GOALS

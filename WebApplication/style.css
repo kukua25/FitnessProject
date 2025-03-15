@@ -138,4 +138,19 @@ body, h1, h2, nav, button, section, form, input, select, table, th, td {
     height: auto;
     margin-top: 1rem;
   }
+
+  .clear-button {
+    background-color: red; 
+    color: white; 
+    font-size: 1rem; 
+    padding: 0.5rem 1rem;
+    border: none; 
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  .clear-button:hover {
+    opacity: 0.8;
+  }
   
