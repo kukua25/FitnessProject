@@ -18,3 +18,5 @@ Technologies Used:
 - HTML
 - CSS
 - JavaScript
+- Google Sign-in (API)
+- Google Translate (API)
