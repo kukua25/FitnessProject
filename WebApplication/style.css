@@ -30,7 +30,7 @@ body, h1, h2, nav, button, section, form, input, select, table, th, td {
   header nav {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
   header button {
@@ -153,4 +153,5 @@ body, h1, h2, nav, button, section, form, input, select, table, th, td {
   .clear-button:hover {
     opacity: 0.8;
   }
+
   
