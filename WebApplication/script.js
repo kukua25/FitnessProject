@@ -1,3 +1,21 @@
+// Feature for later possbile addition of Chat GBT API
+/*
+import OpenAI  from "openai";
+const client = new OpenAI();
+
+const completion = await client.chat.completions.create({
+  model: "gpt-4o",
+  messages: [
+      {
+          role: "user",
+          content: "Enter fitness questions!.",
+      },
+  ],
+});
+
+console.log(completion.choices[0].message.content);
+*/
+
 /*******************************************************
  * Show/hide sections
  *******************************************************/
