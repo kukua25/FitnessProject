@@ -1,20 +1,4 @@
-// Feature for later possbile addition of Chat GBT API
-/*
-import OpenAI  from "openai";
-const client = new OpenAI();
 
-const completion = await client.chat.completions.create({
-  model: "gpt-4o",
-  messages: [
-      {
-          role: "user",
-          content: "Enter fitness questions!.",
-      },
-  ],
-});
-
-console.log(completion.choices[0].message.content);
-*/
 
 /*******************************************************
  * Show/hide sections
@@ -73,7 +57,7 @@ function showSection(sectionId) {
     renderChart(workoutData);
   });
 
-  // clearData button functionalility
+  /*clearData button functionalility
   document.getElementById('clearData').addEventListener('click', function() {
     // creates a confirmation dialog
     const userConfirmed = confirm('WARNING: Proceeding will delete all WORKOUT DATA');
@@ -93,6 +77,32 @@ function showSection(sectionId) {
 
     }
 });
+
+
+*/
+
+document.getElementById('deleteData').addEventListener('click', function() {
+  // creates a confirmation dialog for the user
+  const userConfirmation = confirm('WARNING: Proceeding will delete all data');
+
+  // case when the user confirms
+  if (userConfirmation) {
+    // clears the workout data array
+    workoutData = [];
+
+    // clears the localStorage
+    localStorage.removeItem('workoutData');
+
+    // alert for the user 
+    alert('Workout data has been clear');
+
+    // re-renders the chart with the cleared data
+    renderChart(workoutData);
+  }
+})
+
+
+
   
   //-------------------------------------
   // SET GOALS

@@ -141,17 +141,29 @@ body, h1, h2, nav, button, section, form, input, select, table, th, td {
 
   .clear-button {
     background-color: red; 
-    color: white; 
+    color: red; 
     font-size: 1rem; 
     padding: 0.5rem 1rem;
     border: none; 
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 1rem;
+
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: white;
+   /*border: 2px solid white;*/
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+
+
+
+
   }
 
   .clear-button:hover {
-    opacity: 0.8;
+    color: black;
+    background-color: orange;
   }
 
   
