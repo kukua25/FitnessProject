@@ -166,4 +166,23 @@ body, h1, h2, nav, button, section, form, input, select, table, th, td {
     background-color: orange;
   }
 
+  /*
+    contact button
+  */
+  .button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    color: #36a2eb;
+    border: 2px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .button:hover {
+    background: #007bb5;
+    color: white;
+  }
+
   
