@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +26,7 @@
     </script>
     -->
     <nav>
+      <button onclick="showSection('home')">Home</button>
       <button onclick="showSection('logWorkout')">Log Workout</button>
       <button onclick="showSection('viewGraph')">View Progress</button>
       <button onclick="showSection('setGoals')">Set Goals</button>
@@ -35,6 +37,15 @@
   </header>
 
   <main>
+
+    <!-- SECTION: HOME -->
+    <section id="home" class="hidden">
+      <h2>Welcome to Fitness Simplified</h2>
+      <p>Your one-stop solution for tracking your fitness journey.</p>
+      <p>Log your workouts, set goals, and view your progress.</p>
+      <p>"Happy Lifting!" - The Team</p>
+    </section>
+    
     <!-- SECTION: LOG WORKOUT -->
     <section id="logWorkout" class="hidden">
       <h2>Log Your Workout</h2>
@@ -143,25 +154,24 @@
 
     <!-- SECTION: ABOUT -->
     <section id="aboutTeam" class="hidden">
-      <h2>About Us</h2>
-      <p>Mission Statement: The website was created with the goal of "simplyfing"
-        the fitness logging process.
-      </p>
-      <h3 style="text-align: center;">Our Team</h3>
+      <h2>Our Team</h2>
+      <br>
       <div class="row">
         <div class="column">
           <div class="card">
-            <img src="https://media.licdn.com/dms/image/v2/D4E03AQGOIqb4UYKO5A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725922449433?e=1750896000&v=beta&t=BdFSSxArmEDOep51tvifc1r6QpgvSGLUBcIbInJXNU4" alt="Jane" style="width:65%">
+            <img src="https://media.licdn.com/dms/image/v2/D4E03AQHhBnnU4g2nCQ/profile-displayphoto-shrink_400_400/B4EZZuJ56sHoAg-/0/1745604813064?e=1750896000&v=beta&t=97i1nPKQXRlGPyw-nRdBYAi8YE7nyTBsgmvGLW_mOpk" alt="Jane" style="width:65%">
             <div class="container">
               <h3>Aron Mulugeta</h3>
-              <p class="title">Developer & Creator</p>
-              <p>I am currently a second-year student studying Computer Science 
-                  at Virgina Tech. My concentration is within Secure Computing and my intrests
-                  include software engineering, web development, and cybersecurity. One of my motivations
-                  for this project was to gain pratrical skills within the web development industry.
+              <p class="title">Developer</p>
+              <p> I am currently a second-year student studying Computer Science 
+                  at Virginia Tech. My concentration is within Secure Computing and my interests
+                  include software engineering, web development, and cybersecurity. I am passionate about
+                  creating efficient and user-friendly applications. I also enjoy collaborating on projects
+                  that challenge my skills and expand my knowledge.
               </p>
-              <p>Contact: aronmulu25@vt.edu</p>
-              <p><button class="button">Contact</button></p>
+              <p><button class="button" onclick="window.location.href='mailto:aronmulu25@vt.edu?subject=Contact Aron&body=Hello Fitness Simplified Team,,'">Contact</button></p>
+              <p><button class="button" onclick="window.location.href='https://www.linkedin.com/in/amulugeta/'">LinkdIn</button></p>
+              <p><button class="button" onclick="window.location.href='https://github.com/kukua25'">GitHub</button></p>
             </div>
           </div>
         </div>

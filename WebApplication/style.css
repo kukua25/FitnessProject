@@ -1,188 +1,271 @@
-/* General reset */
-body, h1, h2, nav, button, section, form, input, select, table, th, td {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Header styling */
-  header {
-    background: #36a2eb;
-    color: white;
-    padding: 1rem 0;
-    margin-bottom: 20px;
-  }
-  
-  header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  header nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-  
-  header button {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    background: white;
-    color: #36a2eb;
-    border: 2px solid white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  header button:hover {
-    background: #007bb5;
-    color: white;
-  }
-  
-  /* Main content */
-  main {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  /* Section styling */
-  section {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    display: none; /* default hidden */
-  }
-  
-  section.hidden {
-    display: none;
-  }
-  
-  section:not(.hidden) {
-    display: block;
-  }
-  
-  /* Form styling */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: left;
-    margin-top: 1rem;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  input[type="number"],
-  select {
-    font-size: 1rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  input[type="number"]:focus,
-  select:focus {
-    border-color: #36a2eb;
-    outline: none;
-  }
-  
-  /* Submit button */
-  button[type="submit"] {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    color: white;
-    background-color: #36a2eb;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #007bb5;
-  }
-  
-  /* Table styling */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-  }
-  
-  th, td {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    text-align: center;
-  }
-  
-  th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-  }
-  
-  /* Canvas styling */
-  canvas {
-    max-width: 100%;
-    height: auto;
-    margin-top: 1rem;
-  }
+/* import for fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap');
 
-  .clear-button {
-    background-color: red; 
-    color: red; 
-    font-size: 1rem; 
-    padding: 0.5rem 1rem;
-    border: none; 
-    border-radius: 4px;
-    cursor: pointer;
+:root{
+  /* Font variables */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
 
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    color: white;
-   /*border: 2px solid white;*/
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+/* Base styles */
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
 
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
 
+body {
+  font-family: var(--font-body);
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.7;
+  padding: 20px;
+  text-align: center;
+}
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: .5rem;
+}
 
-  }
+/* =====================================================
+   Header
+   ===================================================== */
+header {
+  background: #36a2eb;
+  color: #fff;
+  padding: 1rem 0;
+  margin-bottom: 20px;
+}
 
-  .clear-button:hover {
-    color: black;
-    background-color: orange;
-  }
+header h1 {
+  font-size: 2.25rem;
+}
 
-  /*
-    contact button
-  */
-  .button {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    background: white;
-    color: #36a2eb;
-    border: 2px solid white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
 
-  .button:hover {
-    background: #007bb5;
-    color: white;
-  }
+header button {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  padding: 0.55rem 1.1rem;
+  background: #fff;
+  color: #36a2eb;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-  
+header button:hover {
+  background: #007bb5;
+  color: #fff;
+}
+
+/* =====================================================
+   Main Layout
+   ===================================================== */
+main {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  display: none; /* default hidden */
+}
+
+section.hidden {
+  display: none;
+}
+
+section:not(.hidden) {
+  display: block;
+}
+
+/* =====================================================
+   Forms
+   ===================================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="number"],
+select {
+  font-size: 1rem;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #36a2eb;
+  outline: none;
+}
+
+button[type="submit"] {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  color: #fff;
+  background-color: #36a2eb;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: var(--font-heading);
+}
+
+button[type="submit"]:hover {
+  background-color: #007bb5;
+}
+
+/* =====================================================
+   Tables
+   ===================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+}
+
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: 600;
+}
+
+/* =====================================================
+   Canvas
+   ===================================================== */
+canvas {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+}
+
+/* =====================================================
+   Utility Buttons
+   ===================================================== */
+.clear-button {
+  background-color: red;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: var(--font-heading);
+}
+
+.clear-button:hover {
+  color: #000;
+  background-color: orange;
+}
+
+.button {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #36a2eb;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+  background: #007bb5;
+  color: #fff;
+}
+
+/* =====================================================
+   About Section
+   ===================================================== */
+#aboutTeam {
+  padding: 1rem 0;
+}
+
+#aboutTeam p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 60ch;
+  margin: 0.5rem auto 1.2rem;
+  font-family: var(--font-body);
+  font-weight: 400; /* slightly thicker to avoid thin look */
+}
+
+#aboutTeam .title {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* =====================================================
+   Cards (Team members)
+   ===================================================== */
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.column {
+  flex: 1 1 260px;
+  max-width: 300px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+  text-align: center;
+}
+
+.card img {
+  width: 100% !important;
+  display: block;
+}
+
+.container {
+  padding: 1rem;
+}
