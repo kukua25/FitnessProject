@@ -170,6 +170,14 @@ th {
   font-weight: 600;
 }
 
+/* Home image */
+.home-content img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 /* =====================================================
    Canvas
    ===================================================== */
@@ -215,6 +223,7 @@ canvas {
   background: #007bb5;
   color: #fff;
 }
+
 
 /* =====================================================
    About Section
