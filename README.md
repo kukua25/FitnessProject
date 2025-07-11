@@ -20,3 +20,4 @@ Technologies Used:
 - JavaScript
 - Google Sign-in (API)
 - Google Translate (API)
+- Terraform for AWS hosting (in-progress)
